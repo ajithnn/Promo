@@ -1,0 +1,17 @@
+/* Empty. Add your own CSS if you like */
+.camera-icon{
+	font-size: 75px;
+	position: relative;
+	top:200px;
+	left:25px;
+}
+.go-back{
+	float:right;
+}
+.imgHold img{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:500px;
+}
