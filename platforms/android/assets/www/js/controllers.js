@@ -33,7 +33,7 @@ angular.module('starter.controllers', [])
                 showDelay: 0
             });
             navigator.camera.getPicture($scope.Upload, $scope.onFail, {
-                quality: 30,
+                quality: 20,
                 cameraDirection: navigator.camera.Direction.FRONT,
                 destinationType: navigator.camera.DestinationType.FILE_URI
             });
@@ -99,16 +99,9 @@ angular.module('starter.controllers', [])
         $scope.$emit("InView");
         $scope.imgSrc = sock.ImgSrc;
         $scope.$on('ImageMod', function(event, data) {
-            navigator.notification.alert(
-                data, // message
-                $scope.dummy, // callback
-                'Opening', // title
-                'OK' // buttonName
-            );
-           $scope.imgSrc = $sce.trustAsResourceUrl(data);
             $ionicLoading.hide();
-            $scope.$apply();
-        })
+            ref = window.open($sce.trustAsResourceUrl(data), '_system', 'location=yes');         
+        });
         $scope.$on('Error', function(event, data) {
             navigator.notification.alert(
                 data, // message
